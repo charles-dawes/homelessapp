@@ -1,0 +1,18 @@
+{
+  "name": "homeless-app",
+  "version": "1.0.0",
+  "description": "App for tracking expenses",
+  "main": "app.js",
+  "dependencies": {
+    "jquery": "^3.3.1",
+    "pg": "^7.4.1",
+    "restify": "^6.3.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Charles Dawes",
+  "license": "ISC",
+  "private": true
+}
