@@ -22,23 +22,23 @@
         <!-- Add your site or application content here -->
 
 
-        <div id="header"></div>
-        <div class="container text-center" id="loader">
+        <!-- <div id="header"></div> -->
+        <!-- <div class="container text-center" id="loader">
           <svg width="150px" height="150px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" class="lds-double-ring" style="background: none;"><circle cx="50" cy="50" ng-attr-r="{{config.radius}}" ng-attr-stroke-width="{{config.width}}" ng-attr-stroke="{{config.c1}}" ng-attr-stroke-dasharray="{{config.dasharray}}" fill="none" stroke-linecap="round" r="20" stroke-width="2" stroke="#facd9e" stroke-dasharray="31.41592653589793 31.41592653589793" transform="rotate(165 50 50)"><animateTransform attributeName="transform" type="rotate" calcMode="linear" values="0 50 50;360 50 50" keyTimes="0;1" dur="1.6s" begin="0s" repeatCount="indefinite"></animateTransform></circle><circle cx="50" cy="50" ng-attr-r="{{config.radius2}}" ng-attr-stroke-width="{{config.width}}" ng-attr-stroke="{{config.c2}}" ng-attr-stroke-dasharray="{{config.dasharray2}}" ng-attr-stroke-dashoffset="{{config.dashoffset2}}" fill="none" stroke-linecap="round" r="17" stroke-width="2" stroke="#389798" stroke-dasharray="26.703537555513243 26.703537555513243" stroke-dashoffset="26.703537555513243" transform="rotate(-165 50 50)"><animateTransform attributeName="transform" type="rotate" calcMode="linear" values="0 50 50;-360 50 50" keyTimes="0;1" dur="1.6s" begin="0s" repeatCount="indefinite"></animateTransform></circle>
           </svg>
-        </div>
-        <div class="container" id="userInfo" style="display:none;">
+        </div> -->
+        <!-- <div class="container" id="userInfo" style="display:none;">
           <h4>Welcome! Here is some user info from the database pulled by your Token!</h4>
           <p id="firstName"></p>
           <p id="lastName"></p>
-        </div>
-        <div class="container" id="allContent" style="margin-top:10rem; display: none;">
-            <div id="mainContent" style="height: 100%;">
+        </div> -->
+        <div class="container-fluid fill" id="allContent">
+            <div id="mainContent" class="fill">
 
                 <!-- Slider main container -->
-                <div class="swiper-container">
+                <div class="swiper-container fill">
                     <!-- Additional required wrapper -->
-                    <div class="swiper-wrapper">
+                    <div class="swiper-wrapper fill">
                         <!-- Slides -->
                         <div class="swiper-slide loadPage" page="/swipeLeft6.html"></div>
                         <div class="swiper-slide loadPage" page="/swipeLeft5.html"></div>
@@ -73,6 +73,8 @@
         <div class="container text-center" id="notLoggedIn" style="display:none; ">
           <h3>Click <a href="Login.html">here</a> to login</a>
         </div>
+
+
         <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.3/js/tether.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>

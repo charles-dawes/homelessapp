@@ -10,7 +10,7 @@ $(document).ready(function(){
         e.preventDefault();
         //console.log($("#txtUsername").val());
         //alertify.alert("Login", $("#txtUsername").val(), loginSuccessful());
-        $.post("https://homeless-app-charlesdawes07.c9users.io:8080/auth/login", {username: $("#txtUsername").val(), password: $("#txtPassword").val()}, function(data){
+        $.post("http://18.188.24.223:8888/auth/login", {username: $("#txtUsername").val(), password: $("#txtPassword").val()}, function(data){
             console.log(data);
             if (data == 'invalid credentials'){
                 alertify.error("Invalid credentials, please try again!");

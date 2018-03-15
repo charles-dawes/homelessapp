@@ -6,26 +6,32 @@ var jsSHA = require("jssha");
 
 
 const con = {
-  user: '',
-  host: '', 
-  database: '', 
-  password: '', 
-  port: ,
+  user: 'homelessadmin',
+  host: 'homelessapp.comf0z7yu2yl.us-east-2.rds.amazonaws.com',
+  database: 'homeless_app',
+  password: 'GreenChicken18',
+  port: 5432,
 };
 
 const db = pgp(con);
 
 
 
-
+ 
 
 var server = restify.createServer();
-
-//processing to happen before running any routes 
+server.use(
+  function crossOrigin(req,res,next){
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "X-Requested-With");
+    return next();
+  }
+);
+//processing to happen before running any routes
 server.use(function(req, res, next) {
     //maybe do JWT processing here?
-    
-    return next(); 
+
+    return next();
 });
 server.use(restify.plugins.bodyParser({mapParams: true}));
 server.use(restify.plugins.acceptParser(server.acceptable));
@@ -47,19 +53,19 @@ var verifyToken = function(reqToken){
   } else {
     return false;
   }
-  
+
 }
 
 
 //Route not found, use the method below to log such requests then the "return cb()"
-//line will handle returning the error message 
+//line will handle returning the error message
 server.on('NotFound', function (req, res, err, cb) {
   //logging stuff
   return cb();
 });
 
- 
-server.listen(process.env.PORT, function() {
+
+server.listen(8888, function() {
   console.log('%s listening at %s', server.name, server.url);
 });
 
@@ -93,7 +99,11 @@ server.put({path: PATH, version: '1.0.0',validation:{
 }}, putCreateCategory);
 
 PATH = '/users/get/:ID';
-server.get({path: PATH, version: '1.0.0'}, getUserById);
+server.get({path: PATH, version: '1.0.0', validation:{
+  resources: {
+    ID: {isRequired: true}
+  }
+}}, getUserById);
 server.head({path: PATH, version: '1.0.0'}, getUserById);
 
 
@@ -121,13 +131,13 @@ function respondWithDateTime(req, res, next){
 }
 
 function getCategories(req, res, next){
-  
+
   db.any('SELECT * from public.get_categories()')
     .then(function(data){
       res.send(data);
     });
   //select all active categories
-  
+
 }
 
 function getCategoryById(req, res, next){
@@ -135,26 +145,34 @@ function getCategoryById(req, res, next){
     .then(function(data){
       res.send(data);
     });
-  
+
 }
 
 
 function getUserById(req, res, next){
-  db.any('SELECT * from public.get_user($1)', [req.params.ID])
-    .then(function(data){
-      res.send(data);
-  });
+  if (!isNaN(req.params.ID)){
+    db.one('SELECT * from public.get_user($1)', [req.params.ID])
+      .then(function(data){
+        res.send(data);
+    });
+  } else {
+    db.one('SELECT * from public.get_user_by_token($1)', [req.params.ID])
+      .then(function(data){
+        res.send(data);
+    });
+  }
+
 }
 
 function putCreateCategory(req, res, next){
   var exists = false;
-  
+
   db.any('SELECT * from public.get_categories()', (err, result) => {
     for (let i = 0; i < result.rows.length; i++){
       if (result.rows[i].name === req.params.category_name){
           exists = true;
-  
-      } 
+
+      }
     };
   }).then(console.log(result.rows));
 
@@ -182,7 +200,7 @@ function userLogin(req, res, next){
         var id = user[0];
         //we were able to verify that the username and password sent to the API match a user in the database
         var token = jwt.sign(req.params.username,  Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15));
-        
+
         const addTokenToUser = {
           name: 'update-token',
           text: 'SELECT post_update_token($1::text, $2::integer)',
@@ -194,11 +212,11 @@ function userLogin(req, res, next){
           .then(data => {
             var updated = data[0][0];
             if (updated){
-              res.send(token);  
+              res.send(token);
             } else {
               res.send('failed ');
             }
-            
+
           });
       } else {
         //invalid credentials
@@ -207,4 +225,3 @@ function userLogin(req, res, next){
       }
     });
 }
-
