@@ -1,0 +1,85 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="apple-touch-icon" href="icon.png">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.1.6/css/swiper.min.css" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/alertifyjs@1.11.0/build/css/themes/bootstrap.min.css"/>
+        <link rel="stylesheet" href="site.css" />
+        <!-- nav import -->
+    </head>
+
+    <body>
+        <!--[if lte IE 9]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+        <![endif]-->
+
+        <!-- Add your site or application content here -->
+
+
+        <div id="header"></div>
+        <div class="container text-center" id="loader">
+          <svg width="150px" height="150px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" class="lds-double-ring" style="background: none;"><circle cx="50" cy="50" ng-attr-r="{{config.radius}}" ng-attr-stroke-width="{{config.width}}" ng-attr-stroke="{{config.c1}}" ng-attr-stroke-dasharray="{{config.dasharray}}" fill="none" stroke-linecap="round" r="20" stroke-width="2" stroke="#facd9e" stroke-dasharray="31.41592653589793 31.41592653589793" transform="rotate(165 50 50)"><animateTransform attributeName="transform" type="rotate" calcMode="linear" values="0 50 50;360 50 50" keyTimes="0;1" dur="1.6s" begin="0s" repeatCount="indefinite"></animateTransform></circle><circle cx="50" cy="50" ng-attr-r="{{config.radius2}}" ng-attr-stroke-width="{{config.width}}" ng-attr-stroke="{{config.c2}}" ng-attr-stroke-dasharray="{{config.dasharray2}}" ng-attr-stroke-dashoffset="{{config.dashoffset2}}" fill="none" stroke-linecap="round" r="17" stroke-width="2" stroke="#389798" stroke-dasharray="26.703537555513243 26.703537555513243" stroke-dashoffset="26.703537555513243" transform="rotate(-165 50 50)"><animateTransform attributeName="transform" type="rotate" calcMode="linear" values="0 50 50;-360 50 50" keyTimes="0;1" dur="1.6s" begin="0s" repeatCount="indefinite"></animateTransform></circle>
+          </svg>
+        </div>
+        <div class="container" id="userInfo" style="display:none;">
+          <h4>Welcome! Here is some user info from the database pulled by your Token!</h4>
+          <p id="firstName"></p>
+          <p id="lastName"></p>
+        </div>
+        <div class="container" id="allContent" style="margin-top:10rem; display: none;">
+            <div id="mainContent" style="height: 100%;">
+
+                <!-- Slider main container -->
+                <div class="swiper-container">
+                    <!-- Additional required wrapper -->
+                    <div class="swiper-wrapper">
+                        <!-- Slides -->
+                        <div class="swiper-slide loadPage" page="/swipeLeft6.html"></div>
+                        <div class="swiper-slide loadPage" page="/swipeLeft5.html"></div>
+                        <div class="swiper-slide loadPage" page="/swipeLeft4.html"></div>
+                        <div class="swiper-slide loadPage" page="/swipeLeft3.html"></div>
+                        <div class="swiper-slide loadPage" page="/swipeLeft2.html"></div>
+                        <div class="swiper-slide loadPage" page="/swipeLeft1.html"></div>
+
+                        <div class="swiper-slide loadPage" page="/home.html"></div>
+
+                        <div class="swiper-slide loadPage" page="/swipeRight1.html"></div>
+                        <div class="swiper-slide loadPage" page="/swipeRight2.html"></div>
+                        <div class="swiper-slide loadPage" page="/swipeRight3.html"></div>
+                        <div class="swiper-slide loadPage" page="/swipeRight4.html"></div>
+                        <div class="swiper-slide loadPage" page="/swipeRight5.html"></div>
+                        <div class="swiper-slide loadPage" page="/swipeRight6.html"></div>
+                    </div>
+                    <!--<div class="swiper-button-prev"></div>-->
+                    <!--<div class="swiper-button-next"></div>-->
+                    <!--<div class="swiper-pagination"></div>-->
+                    <!-- If we need pagination
+
+
+                    <!-- If we need navigation buttons
+
+
+                    <!-- If we need scrollbar
+                    <div class="swiper-scrollbar"></div>-->
+                </div>
+            </div>
+        </div>
+        <div class="container text-center" id="notLoggedIn" style="display:none; ">
+          <h3>Click <a href="Login.html">here</a> to login</a>
+        </div>
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.3/js/tether.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.1.6/js/swiper.min.js"></script>
+        <script src="/functions.js"></script>
+
+    </body>
+</html>
