@@ -9,7 +9,7 @@ const con = {
   user: 'homelessadmin',
   host: 'homelessapp.comf0z7yu2yl.us-east-2.rds.amazonaws.com',
   database: 'homeless_app',
-  password: 'GreenChicken18',
+  password: '',
   port: 5432,
 };
 
